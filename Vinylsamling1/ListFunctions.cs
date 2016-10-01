@@ -16,7 +16,7 @@ namespace Vinylsamling1
 
 
         // Denna metod körs bara en gång för att kolla om det redan finns en fil, finns det ingen fil så skapar den en ny.
-        // Finns det redan en fil så lägger den in den i listorna
+        // Finns det redan en fil så lägger den in datan från filerna till listorna.
 
 
         public static void ListApplier()
@@ -129,15 +129,16 @@ namespace Vinylsamling1
 
         public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
         {
-
+            int x = 1;
 
             for (int i = 0; i < name.Count; i++)
             {
-                Console.WriteLine("\nNamn: {0}", name[i]);
+                Console.WriteLine("\n" +x);
+                Console.WriteLine("Namn: {0}", name[i]);
                 Console.WriteLine("Album: {0}", album[i]);
                 Console.WriteLine("Artist: {0}", artist[i]);
                 Console.WriteLine("År: {0}", year[i]);
-
+                x++;
             }
 
 

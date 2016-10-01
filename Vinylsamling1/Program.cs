@@ -19,8 +19,8 @@ namespace Vinylsamling1
                 Console.WriteLine("Hej och välkommen till din vinylsamling");
                 Console.WriteLine("[1] Visa vinyl arkivet");
                 Console.WriteLine("[2] Lägg till i arkivet");
-                Console.WriteLine("[3] ");
-                Console.WriteLine("[4]");
+                Console.WriteLine("[3] Redigera arkiv");
+                Console.WriteLine("[4] Avsluta");
                 string choice = Console.ReadLine();
                 if (choice == "1" || choice == "2" || choice == "3" || choice == "4")
                 {
