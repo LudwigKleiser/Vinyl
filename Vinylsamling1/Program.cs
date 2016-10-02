@@ -16,6 +16,7 @@ namespace Vinylsamling1
             bool start = true;
             while (start)
             {
+                Console.Clear();
                 Console.WriteLine("Hej och välkommen till din vinylsamling");
                 Console.WriteLine("[1] Visa vinyl arkivet");
                 Console.WriteLine("[2] Lägg till i arkivet");
@@ -35,7 +36,7 @@ namespace Vinylsamling1
                 {
                     case 1:
                         ListFunctions.PrintVinylsToScreen();
-                        Console.Read();
+                        
                         break;
 
                     case 2:
@@ -44,7 +45,7 @@ namespace Vinylsamling1
                         break;
 
                     case 3:
-                        ListFunctions.PrintVinylsToScreen();
+                        ListFunctions.EditVinyl();
 
                         break;
 

@@ -73,6 +73,7 @@ namespace Vinylsamling1
                 }
                 List<string> distinct3 = year.Distinct().ToList();
                 year = distinct3;
+                SaveToDisk();
 
             }
 
@@ -121,31 +122,61 @@ namespace Vinylsamling1
 
         public static void SaveToDisk() // Metod för att spara ner det användaren skrivit in till textfilerna
         {
-            File.AppendAllLines(@"C:\Users\public\Name.txt", name);
-            File.AppendAllLines(@"C:\Users\public\Album.txt", album);
-            File.AppendAllLines(@"C:\Users\public\Artist.txt", artist);
-            File.AppendAllLines(@"C:\Users\public\Year.txt", year);
+            File.WriteAllLines(@"C:\Users\public\Name.txt", name);
+            File.WriteAllLines(@"C:\Users\public\Album.txt", album);
+            File.WriteAllLines(@"C:\Users\public\Artist.txt", artist);
+            File.WriteAllLines(@"C:\Users\public\Year.txt", year);
         }
 
         public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
         {
+            if (!name.Any()) 
+            {
+                Console.WriteLine("Det finns inga vinyler i arkviet än!");
+                Console.WriteLine("Tryck på valfri knapp för att återgå till menyn");
+                Console.Read();
+                
+            }
+
+            else
+            { 
             int x = 1;
+            Console.Clear();
 
             for (int i = 0; i < name.Count; i++)
             {
-                Console.WriteLine("\n" +x);
+                Console.WriteLine("\n [{0}]", x);
                 Console.WriteLine("Namn: {0}", name[i]);
                 Console.WriteLine("Album: {0}", album[i]);
                 Console.WriteLine("Artist: {0}", artist[i]);
                 Console.WriteLine("År: {0}", year[i]);
                 x++;
             }
-
-
-            Console.Read();
+             }
+            
+            
         }
 
+          public static void EditVinyl()
+        {
+            PrintVinylsToScreen();
+            Console.WriteLine("\nAnge vilken vinyl du vill redigera");
+            Console.Write("Val: ");
+            string choice = Console.ReadLine();
+            int choice1 = Convert.ToInt32(choice);
+            choice1--;
+            name.RemoveAt(choice1);
+            album.RemoveAt(choice1);
+            artist.RemoveAt(choice1);
+            year.RemoveAt(choice1);
+            SaveToDisk();
+            PrintVinylsToScreen();
+            
 
+
+
+
+        }
 
     }
 }
