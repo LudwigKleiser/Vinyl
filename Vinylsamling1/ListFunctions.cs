@@ -97,6 +97,26 @@ namespace Vinylsamling1
 
         public static void AddToList() // Metod för att ta in användarens input in i listorna
         {
+            
+            
+            
+            Console.Write("Namn: ");
+            string name = Console.ReadLine();
+            Console.Clear();
+            Console.Write("Album: ");
+            string album = Console.ReadLine();
+            Console.Clear();
+            Console.Write("Artist: ");
+            string artist = Console.ReadLine();
+            Console.Clear();
+            Console.Write("År: ");
+            string year = Console.ReadLine();
+            Vinyl vinyl = new Vinyl(name, album, artist, year);
+            Vinyl.vinyls.AddRange(name, album, artist, year);
+
+
+
+            /*
             Console.WriteLine("Skriv in namnet");
             Console.Write("Namn: ");
             string tempName = Console.ReadLine();
@@ -117,29 +137,33 @@ namespace Vinylsamling1
             Console.Write("år: ");
             string tempYear = Console.ReadLine();
             year.Add(tempYear);
-
+            */
         }
 
         public static void SaveToDisk() // Metod för att spara ner det användaren skrivit in till textfilerna
         {
+            /*
             File.WriteAllLines(@"C:\Users\public\Name.txt", name);
             File.WriteAllLines(@"C:\Users\public\Album.txt", album);
             File.WriteAllLines(@"C:\Users\public\Artist.txt", artist);
             File.WriteAllLines(@"C:\Users\public\Year.txt", year);
+            */
+            
         }
 
         public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
         {
-            if (!name.Any()) 
+            /*if (!name.Any()) 
             {
                 Console.WriteLine("Det finns inga vinyler i arkviet än!");
                 Console.WriteLine("Tryck på valfri knapp för att återgå till menyn");
                 Console.Read();
+                return;
                 
             }
+            */
 
-            else
-            { 
+
             int x = 1;
             Console.Clear();
 
@@ -152,12 +176,12 @@ namespace Vinylsamling1
                 Console.WriteLine("År: {0}", year[i]);
                 x++;
             }
-             }
-            
-            
         }
 
-          public static void EditVinyl()
+
+
+
+        public static void EditVinyl()
         {
             PrintVinylsToScreen();
             Console.WriteLine("\nAnge vilken vinyl du vill redigera");
@@ -171,13 +195,14 @@ namespace Vinylsamling1
             year.RemoveAt(choice1);
             SaveToDisk();
             PrintVinylsToScreen();
-            
 
 
 
 
         }
-
     }
 }
+
+    
+
 
