@@ -8,11 +8,11 @@ namespace Vinylsamling1
 {
     class Program
     {
-        static int userValue;
+        
 
         static void Main(string[] args)
         {
-            ListFunctions.ListApplier();
+          //  ListFunctions.ListApplier();
             bool start = true;
             while (start)
             {
@@ -22,15 +22,11 @@ namespace Vinylsamling1
                 Console.WriteLine("[2] Lägg till i arkivet");
                 Console.WriteLine("[3] Redigera arkiv");
                 Console.WriteLine("[4] Avsluta");
-                string choice = Console.ReadLine();
-                if (choice == "1" || choice == "2" || choice == "3" || choice == "4")
-                {
-                    userValue = int.Parse(choice);
-                }
-                else
-                {
-                    Console.WriteLine("Vänligen ange 1,2,3 eller 4");
-                }
+                Console.Write("Val: ");
+                int userValue;
+                int.TryParse(Console.ReadLine(), out userValue);
+               
+              
 
                 switch (userValue)
                 {
@@ -46,7 +42,8 @@ namespace Vinylsamling1
 
                     case 3:
                         ListFunctions.EditVinyl();
-
+                        
+                        
                         break;
 
                     case 4:
@@ -54,6 +51,9 @@ namespace Vinylsamling1
                         break;
 
                     default:
+                        Console.WriteLine("Någonting gick fel, tryck på valfri knapp för att återgå till menyn");
+                        Console.ReadKey();
+                       
 
                         break;
                 }

@@ -10,44 +10,51 @@ namespace Vinylsamling1
     {
         public static List<Vinyl> vinyls = new List<Vinyl>();
 
-        private static string name;
+        public string Name { get; set; }
+        public string Album { get; set; }
+        public string Artist { get; set; }
+        public string Year { get; set; }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = Console.ReadLine(); }
-        }
-        private static string album;
 
-        public static string Album
-        {
-            get { return album; }
-            set { album = Console.ReadLine(); }
-        }
+        /* private static string name;
 
-        private static string artist;
+         public static string Name
+         {
+             get { return name; }
+             set { name = value; }
+         }
+         private static string album;
 
-        public static string Artist
-        {
-            get { return artist; }
-            set { artist = Console.ReadLine(); }
-        }
-        private static string year;
+         public static string Album
+         {
+             get { return album; }
+             set { album = value; ; }
+         }
 
-        public static string Year
-        {
-            get { return year; }
-            set { year = Console.ReadLine(); }
-        }
+         private static string artist;
 
-       
+         public static string Artist
+         {
+             get { return artist; }
+             set { artist = value; }
+         }
+         private static string year;
 
-        public Vinyl(string name, string album, string artist, string year)
-        {
-            Name = name;
-            Album = album;
-            Artist = artist;
-            Year = year;
-        }
+         public static string Year
+         {
+             get { return year; }
+             set { year = value; }
+         }
+
+
+         /*
+         public Vinyl(string name, string album, string artist, string year)
+         {
+             Name = name;
+             Album = album;
+             Artist = artist;
+             Year = year;
+         }
+         */
     }
 }

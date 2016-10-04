@@ -9,16 +9,16 @@ namespace Vinylsamling1
     class ListFunctions
     {
         //Här skapas listorna vi ska använda oss av
-        public static List<string> name = new List<string>();
-        public static List<string> album = new List<string>();
-        public static List<string> artist = new List<string>();
-        public static List<string> year = new List<string>();
+       // public static List<string> name = new List<string>();
+        //public static List<string> album = new List<string>();
+        //public static List<string> artist = new List<string>();
+        //public static List<string> year = new List<string>();
 
 
         // Denna metod körs bara en gång för att kolla om det redan finns en fil, finns det ingen fil så skapar den en ny.
         // Finns det redan en fil så lägger den in datan från filerna till listorna.
 
-
+        /*  
         public static void ListApplier()
         {
 
@@ -92,27 +92,35 @@ namespace Vinylsamling1
 
 
         }
-
+        */
 
 
         public static void AddToList() // Metod för att ta in användarens input in i listorna
         {
-            
-            
+
+            Vinyl vinyl = new Vinyl();
             
             Console.Write("Namn: ");
-            string name = Console.ReadLine();
-            Console.Clear();
+             vinyl.Name = Console.ReadLine();
+           
+           
+
             Console.Write("Album: ");
-            string album = Console.ReadLine();
-            Console.Clear();
+            vinyl.Album = Console.ReadLine();
+            
+           
+
             Console.Write("Artist: ");
-            string artist = Console.ReadLine();
-            Console.Clear();
+            vinyl.Artist = Console.ReadLine();
+            
+            
+
             Console.Write("År: ");
-            string year = Console.ReadLine();
-            Vinyl vinyl = new Vinyl(name, album, artist, year);
-            Vinyl.vinyls.AddRange(name, album, artist, year);
+            vinyl.Year = Console.ReadLine();
+
+
+            Vinyl.vinyls.Add(vinyl);
+            
 
 
 
@@ -148,7 +156,7 @@ namespace Vinylsamling1
             File.WriteAllLines(@"C:\Users\public\Artist.txt", artist);
             File.WriteAllLines(@"C:\Users\public\Year.txt", year);
             */
-            
+           // File.WriteAllLines(@"C:\Users\public\Vinyls.txt",Vinyl.vinyls);
         }
 
         public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
@@ -163,7 +171,7 @@ namespace Vinylsamling1
             }
             */
 
-
+            /*
             int x = 1;
             Console.Clear();
 
@@ -176,11 +184,20 @@ namespace Vinylsamling1
                 Console.WriteLine("År: {0}", year[i]);
                 x++;
             }
+            */
+            int x = 1;
+            foreach (Vinyl vinyl in Vinyl.vinyls)
+            {
+                Console.WriteLine("[{0}] Namn: {1} Album: {2} Artist: {3} År: {4}", x, vinyl.Name, vinyl.Album, vinyl.Artist, vinyl.Year);
+                x++;
+                
+            }
+            
         }
 
 
 
-
+        
         public static void EditVinyl()
         {
             PrintVinylsToScreen();
@@ -189,17 +206,24 @@ namespace Vinylsamling1
             string choice = Console.ReadLine();
             int choice1 = Convert.ToInt32(choice);
             choice1--;
+
+            Vinyl.vinyls.RemoveAt(choice1);
+            PrintVinylsToScreen();
+            Console.Read();
+
+            /*
             name.RemoveAt(choice1);
             album.RemoveAt(choice1);
             artist.RemoveAt(choice1);
             year.RemoveAt(choice1);
             SaveToDisk();
             PrintVinylsToScreen();
-
+            */
 
 
 
         }
+        
     }
 }
 
