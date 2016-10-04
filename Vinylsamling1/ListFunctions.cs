@@ -8,8 +8,10 @@ namespace Vinylsamling1
 {
     class ListFunctions
     {
+        public static List<Vinyl> vinyls = new List<Vinyl>();
+        
         //Här skapas listorna vi ska använda oss av
-       // public static List<string> name = new List<string>();
+        // public static List<string> name = new List<string>();
         //public static List<string> album = new List<string>();
         //public static List<string> artist = new List<string>();
         //public static List<string> year = new List<string>();
@@ -101,7 +103,7 @@ namespace Vinylsamling1
             Vinyl vinyl = new Vinyl();
             
             Console.Write("Namn: ");
-             vinyl.Name = Console.ReadLine();
+            vinyl.Name = Console.ReadLine();
            
            
 
@@ -119,7 +121,7 @@ namespace Vinylsamling1
             vinyl.Year = Console.ReadLine();
 
 
-            Vinyl.vinyls.Add(vinyl);
+             vinyls.Add(vinyl);
             
 
 
@@ -156,7 +158,9 @@ namespace Vinylsamling1
             File.WriteAllLines(@"C:\Users\public\Artist.txt", artist);
             File.WriteAllLines(@"C:\Users\public\Year.txt", year);
             */
-           // File.WriteAllLines(@"C:\Users\public\Vinyls.txt",Vinyl.vinyls);
+
+            // File.AppendAllLines(@"C:\Users\public\Vinyls.txt", vinyls);
+           
         }
 
         public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
@@ -186,7 +190,7 @@ namespace Vinylsamling1
             }
             */
             int x = 1;
-            foreach (Vinyl vinyl in Vinyl.vinyls)
+            foreach (Vinyl vinyl in vinyls)
             {
                 Console.WriteLine("[{0}] Namn: {1} Album: {2} Artist: {3} År: {4}", x, vinyl.Name, vinyl.Album, vinyl.Artist, vinyl.Year);
                 x++;
@@ -201,16 +205,16 @@ namespace Vinylsamling1
         public static void EditVinyl()
         {
             PrintVinylsToScreen();
-            Console.WriteLine("\nAnge vilken vinyl du vill redigera");
+            Console.WriteLine("\nAnge vilken vinyl du vill ta bort");
             Console.Write("Val: ");
             string choice = Console.ReadLine();
             int choice1 = Convert.ToInt32(choice);
-            choice1--;
-
-            Vinyl.vinyls.RemoveAt(choice1);
+            choice1--;            
+            vinyls.RemoveAt(choice1);
             PrintVinylsToScreen();
-            Console.Read();
-
+            Console.ReadKey();
+            
+            
             /*
             name.RemoveAt(choice1);
             album.RemoveAt(choice1);

@@ -8,22 +8,22 @@ namespace Vinylsamling1
 {
     class Vinyl
     {
-        public static List<Vinyl> vinyls = new List<Vinyl>();
+        
 
         public string Name { get; set; }
         public string Album { get; set; }
         public string Artist { get; set; }
         public string Year { get; set; }
 
-
-        /* private static string name;
+/*
+         public static string name;
 
          public static string Name
          {
              get { return name; }
              set { name = value; }
          }
-         private static string album;
+         public static string album;
 
          public static string Album
          {
@@ -31,14 +31,14 @@ namespace Vinylsamling1
              set { album = value; ; }
          }
 
-         private static string artist;
+         public static string artist;
 
          public static string Artist
          {
              get { return artist; }
              set { artist = value; }
          }
-         private static string year;
+         public static string year;
 
          public static string Year
          {
@@ -46,7 +46,7 @@ namespace Vinylsamling1
              set { year = value; }
          }
 
-
+        
          /*
          public Vinyl(string name, string album, string artist, string year)
          {
