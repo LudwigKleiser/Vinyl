@@ -121,7 +121,7 @@ namespace Vinylsamling1
             SaveToDisk();
             Console.ReadKey();
         }
-
+        // Tar emot användarens input från från DecideOnEdit() och ger användaren möjlighet att redigera den valda vinylel.
         public static void EditVinyl(Vinyl vinyl)
         {
             Console.WriteLine("Ange nytt namn(klicka på enter för att inte göra ändring.");
@@ -146,6 +146,7 @@ namespace Vinylsamling1
 
 
         }
+        // Ber användaren välja vilken vinyl som ska redigeras. Den kallar sedan på EditVinyl() och skickar med användarens input.
         public static void DecideOnEdit()
         {
             
