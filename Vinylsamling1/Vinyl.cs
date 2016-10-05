@@ -45,9 +45,9 @@ namespace Vinylsamling1
              get { return year; }
              set { year = value; }
          }
-
+         */
         
-         /*
+         
          public Vinyl(string name, string album, string artist, string year)
          {
              Name = name;
@@ -55,6 +55,6 @@ namespace Vinylsamling1
              Artist = artist;
              Year = year;
          }
-         */
+         
     }
 }

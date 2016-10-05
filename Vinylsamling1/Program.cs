@@ -12,7 +12,7 @@ namespace Vinylsamling1
 
         static void Main(string[] args)
         {
-          //  ListFunctions.ListApplier();
+          ListFunctions.ListApplier();
             bool start = true;
             while (start)
             {
@@ -32,6 +32,7 @@ namespace Vinylsamling1
                 {
                     case 1:
                         ListFunctions.PrintVinylsToScreen();
+                        Console.ReadLine();
                         
                         break;
 
