@@ -10,43 +10,13 @@ namespace Vinylsamling1
     {
         
 
-        public string Name { get; set; }
-        public string Album { get; set; }
-        public string Artist { get; set; }
-        public string Year { get; set; }
+        public  string Name { get; set; }
+        public  string Album { get; set; }
+        public  string Artist { get; set; }
+        public  string Year { get; set; }
 
-/*
-         public static string name;
 
-         public static string Name
-         {
-             get { return name; }
-             set { name = value; }
-         }
-         public static string album;
-
-         public static string Album
-         {
-             get { return album; }
-             set { album = value; ; }
-         }
-
-         public static string artist;
-
-         public static string Artist
-         {
-             get { return artist; }
-             set { artist = value; }
-         }
-         public static string year;
-
-         public static string Year
-         {
-             get { return year; }
-             set { year = value; }
-         }
-         */
-        
+       
          
          public Vinyl(string name, string album, string artist, string year)
          {
@@ -55,6 +25,7 @@ namespace Vinylsamling1
              Artist = artist;
              Year = year;
          }
-         
+
+        
     }
 }

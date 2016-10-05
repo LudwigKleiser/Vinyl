@@ -8,7 +8,7 @@ namespace Vinylsamling1
 {
     class ListFunctions
     {
-        public static List<Vinyl> vinyls = new List<Vinyl>();
+       public static List<Vinyl> vinyls = new List<Vinyl>();
         
         
 
@@ -118,14 +118,49 @@ namespace Vinylsamling1
             choice1--;            
             vinyls.RemoveAt(choice1);
             PrintVinylsToScreen();
+            SaveToDisk();
             Console.ReadKey();
         }
-        
-        public static void EditVinyl()
+
+        public static void EditVinyl(Vinyl vinyl)
         {
+            Console.WriteLine("Ange nytt namn(klicka på enter för att inte göra ändring.");
+            Console.Write("Namn: ");
+            string newName = Console.ReadLine();
+            if (newName != "") vinyl.Name = newName;
+
+            Console.WriteLine("Ange nytt album(klicka på enter för att inte göra ändring.");
+            Console.Write("Album: ");
+            string newAlbum = Console.ReadLine();
+            if (newAlbum != "") vinyl.Album = newName;
+
+            Console.WriteLine("Ange ny Artist(klicka på enter för att inte göra ändring.");
+            Console.Write("Artist: ");
+            string newArtist = Console.ReadLine();
+            if (newArtist != "") vinyl.Artist = newArtist;
+
+            Console.WriteLine("Ange nytt år(klicka på enter för att inte göra ändring.");
+            Console.Write("År: ");
+            string newYear = Console.ReadLine();
+            if (newYear != "") vinyl.Year = newYear;
+
 
         }
-        
+        public static void DecideOnEdit()
+        {
+            
+            PrintVinylsToScreen();
+            Console.WriteLine("Ange vilket vinyl du vill redigera");
+            string choice = Console.ReadLine();
+            int choice1 = Convert.ToInt32(choice);
+            choice1--;
+            if (choice1 < vinyls.Count && choice1 >= 0)
+            {
+            EditVinyl(vinyls[choice1]); 
+            }
+           
+           
+        }
     }
 }
 

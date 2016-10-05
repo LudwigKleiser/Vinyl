@@ -42,6 +42,7 @@ namespace Vinylsamling1
                         break;
 
                     case 3:
+                        ListFunctions.DecideOnEdit();
                         
                         break;
 
