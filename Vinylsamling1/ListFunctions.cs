@@ -70,20 +70,21 @@ namespace Vinylsamling1
             
         }
 
-        public static void SaveToDisk() // Metod för att spara ner det användaren skrivit in till textfilerna
+        public static void SaveToDisk() // Metod för att spara ner det användaren skrivit in till textfilen
         {
             string[] saveToFile = new string[vinyls.Count * 4];
-            for (int i = 0; i < vinyls.Count; i+=4)
+            for (int i = 0; i < vinyls.Count; i++)
             {
-                saveToFile[i] = vinyls[i].Name;
-                saveToFile[i+1] = vinyls[i].Album;
-                saveToFile[i+2] = vinyls[i].Artist;
-                saveToFile[i+3] = vinyls[i].Year;
+                saveToFile[i*4] = vinyls[i].Name;
+                saveToFile[i*4 + 1] = vinyls[i].Album;
+                saveToFile[i*4 + 2] = vinyls[i].Artist;
+                saveToFile[i*4 + 3] = vinyls[i].Year;
             }
             File.WriteAllLines(@"C:\Users\public\Vinyls.txt", saveToFile);
         }
-
-        public static void PrintVinylsToScreen() // Skriver ut vinylerna till användaren.
+        // Kollar först om våran lista innehåller någonting, gör den inte det så ger den ett felmeddelande för att förbättra användar upplevelsen.
+        // Innehåller våran lista någonting så skriver den ut vinylerna till användaren.
+        public static void PrintVinylsToScreen() 
         {
             if (!vinyls.Any()) 
             {
@@ -107,7 +108,7 @@ namespace Vinylsamling1
 
 
         
-        public static void EditVinyl()
+        public static void RemoveVinyl()
         {
             PrintVinylsToScreen();
             Console.WriteLine("\nAnge vilken vinyl du vill ta bort");
@@ -118,11 +119,10 @@ namespace Vinylsamling1
             vinyls.RemoveAt(choice1);
             PrintVinylsToScreen();
             Console.ReadKey();
-            
-            
-            
-
-
+        }
+        
+        public static void EditVinyl()
+        {
 
         }
         

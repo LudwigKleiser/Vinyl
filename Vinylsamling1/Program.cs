@@ -20,8 +20,9 @@ namespace Vinylsamling1
                 Console.WriteLine("Hej och välkommen till din vinylsamling");
                 Console.WriteLine("[1] Visa vinyl arkivet");
                 Console.WriteLine("[2] Lägg till i arkivet");
-                Console.WriteLine("[3] Redigera arkiv");
-                Console.WriteLine("[4] Avsluta");
+                Console.WriteLine("[3] Redigera vinyler");
+                Console.WriteLine("[4] Rensa i arkivet");
+                Console.WriteLine("[5] Avsluta");
                 Console.Write("Val: ");
                 int userValue;
                 int.TryParse(Console.ReadLine(), out userValue);
@@ -32,8 +33,7 @@ namespace Vinylsamling1
                 {
                     case 1:
                         ListFunctions.PrintVinylsToScreen();
-                        Console.ReadLine();
-                        
+                        Console.ReadLine();                      
                         break;
 
                     case 2:
@@ -42,15 +42,17 @@ namespace Vinylsamling1
                         break;
 
                     case 3:
-                        ListFunctions.EditVinyl();
-                        
                         
                         break;
 
                     case 4:
-                        Environment.Exit(0);
+                        ListFunctions.RemoveVinyl();
+                        ListFunctions.SaveToDisk();
                         break;
 
+                    case 5:
+                         Environment.Exit(0);
+                        break;
                     default:
                         Console.WriteLine("Någonting gick fel, tryck på valfri knapp för att återgå till menyn");
                         Console.ReadKey();
